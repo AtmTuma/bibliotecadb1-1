@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<p class="lead">Olá, #{sessionScope.usuario.nome}! Seja
+				bem-vindo(a)!</p>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="card card-custom">
+						<h:graphicImage class="card-img-top card-img-custom"
+							library="imagens" name="gerenciar.png" />
+						<div class="card-block">
+							<h4 class="card-title">Gerenciar Livros</h4>
+							<p class="card-text lead">Visualizar ou adicionar
+								livros.</p>
+							<h:link class="btn btn-danger btn-block" value="Gerenciar" outcome="acervo" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="card card-custom">
+						<h:graphicImage class="card-img-top card-img-custom"
+							library="imagens" name="emprestimos.png" />
+						<div class="card-block">
+							<h4 class="card-title">Empréstimos</h4>
+							<p class="card-text lead">Livros emprestados e devolução.</p>
+							<h:link class="btn btn-danger btn-block" value="Empréstimos" outcome="emprestimos" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="card card-custom">
+						<h:graphicImage class="card-img-top card-img-custom"
+							library="imagens" name="reservas.png" />
+						<div class="card-block">
+							<h4 class="card-title">Reservas</h4>
+							<p class="card-text lead">Livros reservados e lista de
+								espera.</p>
+							<h:link class="btn btn-danger btn-block" value="Reservas" outcome="reservas" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<div class="row">
+				<div class="col-xs-12 col-md-8">
+					<p class="lead titulo-pagina">Empréstimos Ativos</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<p class="lead"><h:messages class="bg-success"/></p>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h:outputLabel rendered="#{empty emprestimoBean.entidades}">
+						<p class="lead">Não há empréstimos ativos!</p>
+					</h:outputLabel>
+					<h:form>
+						<h:dataTable class="table table-sm table-hover"
+							value="#{emprestimoBean.entidades}" var="emprestimo"
+							rendered="#{not empty emprestimoBean.entidades}">
+							<h:column headerClass="col-id text-white">
+								<!-- column header -->
+								<f:facet name="header">Id</f:facet>
+								<!-- row record -->
+    						#{emprestimo.id}
+    						</h:column>
+							<h:column headerClass="col-data text-white">
+								<!-- column header -->
+								<f:facet name="header">Data Devolução</f:facet>
+								<!-- row record -->
+    						<h:outputLabel value="#{emprestimo.dataDevolucao}">
+    							
+    						</h:outputLabel>
+    						</h:column>
+							<h:column headerClass="col-colaborador text-white">
+								<!-- column header -->
+								<f:facet name="header">Colaborador</f:facet>
+								<!-- row record -->
+    						#{emprestimo.usuario.nome}
+    						</h:column>
+							<h:column headerClass="col-titulo-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Livro</f:facet>
+								<!-- row record -->
+    						#{emprestimo.livro.titulo}
+    						</h:column>
+							<h:column headerClass="col-gerenciar text-white">
+								<f:facet name="header">Gerenciar</f:facet>
+								<h:commandButton value="Confirmar Devolução"
+									class="btn text-white btn-success"
+									action="#{emprestimoBean.confirmaDevolucaoLivro(emprestimo)}" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

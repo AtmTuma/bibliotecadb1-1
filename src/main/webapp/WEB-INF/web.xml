@@ -1,0 +1,65 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<!-- Login filter -->
+	<filter>
+		<filter-name>LoginRHFilter</filter-name>
+		<filter-class>br.com.db1.filter.ControleDeAcessoRH</filter-class>
+	</filter>
+	<filter>
+		<filter-name>LoginColaboradorFilter</filter-name>
+		<filter-class>br.com.db1.filter.ControleDeAcessoColaborador</filter-class>
+	</filter>
+	<!-- Set the login filter to secure all the pages in the /secured/* path 
+		of the application -->
+	<filter-mapping>
+		<filter-name>LoginRHFilter</filter-name>
+		<url-pattern>/LoginRH/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>LoginColaboradorFilter</filter-name>
+		<url-pattern>/LoginColaborador/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>FacesServlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FacesServlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>telaLogin.xhtml</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/erro.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/erro.xhtml</location>
+	</error-page>
+	
+	<resource-env-ref>
+		<resource-env-ref-name>BeanManager</resource-env-ref-name>
+		<resource-env-ref-type>
+			javax.enterprise.inject.spi.BeanManager
+		</resource-env-ref-type>
+	</resource-env-ref>
+	
+</web-app>

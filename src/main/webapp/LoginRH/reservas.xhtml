@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<div class="row">
+				<div class="col-xs-12 col-md-8">
+					<p class="lead titulo-pagina">Reservas</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<p class="lead">
+						<h:messages class="bg-success" />
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h:outputLabel rendered="#{empty reservaBean.entidades}">
+						<p class="lead">Não há reservas ativas!</p>
+					</h:outputLabel>
+					<h:form>
+						<h:dataTable class="table table-sm table-hover"
+							value="#{reservaBean.entidades}" var="reserva"
+							rendered="#{not empty reservaBean.entidades}">
+							<h:column headerClass="col-id text-white">
+								<!-- column header -->
+								<f:facet name="header">Id</f:facet>
+								<!-- row record -->
+    						#{reserva.id}
+    						</h:column>
+							<h:column headerClass="col-data text-white">
+								<!-- column header -->
+								<f:facet name="header">Data Reserva</f:facet>
+								<!-- row record -->
+								<h:outputLabel value="#{reserva.dataReserva}">
+									
+								</h:outputLabel>
+							</h:column>
+							<h:column headerClass="col-colaborador text-white">
+								<!-- column header -->
+								<f:facet name="header">Colaborador</f:facet>
+								<!-- row record -->
+    						#{reserva.usuario.nome}
+    						</h:column>
+							<h:column headerClass="col-titulo-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Livro</f:facet>
+								<!-- row record -->
+    						#{reserva.livro.titulo}
+    						</h:column>
+							<h:column headerClass="col-gerenciar text-white">
+								<f:facet name="header">Gerenciar</f:facet>
+								<h:commandButton value="Autorizar Empréstimo"
+									class="btn btn-block text-white btn-success"
+									action="#{emprestimoBean.autorizaEmprestimo(reserva)}" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

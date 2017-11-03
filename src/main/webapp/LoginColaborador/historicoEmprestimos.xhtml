@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<p class="lead titulo-pagina">Histórico de Empréstimos</p>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h:form>
+						<h:dataTable class="table table-sm table-hover"
+							value="#{emprestimoBean.entidades}" var="emprestimo">
+							<h:column headerClass="col-cod-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Id</f:facet>
+								<!-- row record -->
+    						#{emprestimo.id}
+    						</h:column>
+							<h:column headerClass="col-data text-white">
+								<!-- column header -->
+								<f:facet name="header">Data Empréstimo</f:facet>
+								<!-- row record -->
+    						#{emprestimo.dataEmprestimo}
+    						</h:column>
+							<h:column headerClass="col-titulo-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Título</f:facet>
+								<!-- row record -->
+    						#{emprestimo.livro.titulo}
+    						</h:column>
+							<h:column headerClass="col-data text-white">
+								<!-- column header -->
+								<f:facet name="header">Devolução</f:facet>
+								<!-- row record -->
+    						#{emprestimo.dataDevolucao}
+    						</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

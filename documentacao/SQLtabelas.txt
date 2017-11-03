@@ -1,0 +1,117 @@
+abra o pgadmin 4;
+crie uma nova database chamada 52-DEVBiblioteca;
+vá em schemas->public e crie as tabelas conforme logo a baixo:
+
+Obs: tem que ir lá no persistence.xml e alterar a o usuario e senha para o do seu postgres e se for possivel, não deem git deste arquivo depois, se não vou ter q toda hora mudar aqui no meu note.
+
+CREATE TABLE public.usuario
+(
+    id bigserial NOT NULL,
+    nome character varying(50),
+    email character varying(50) NOT NULL,
+    senha character varying(20) NOT NULL,
+    administrador boolean,
+    ativo boolean,
+    tipo character varying(20),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.usuario
+    OWNER to postgres;
+
+CREATE TABLE public.imagem
+(
+    id bigserial NOT NULL,
+    nome character varying(50),
+    extensao character varying(50),
+    imagem bytea[],
+    livro_id integer,
+    PRIMARY KEY (id),
+    CONSTRAINT livro_id FOREIGN KEY (livro_id)
+        REFERENCES public.livro (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.livro
+    OWNER to postgres;
+
+CREATE TABLE public.livro
+(
+    id bigserial NOT NULL,
+    codigo character varying(50),
+    titulo character varying(80),
+    descricao character varying(750),
+    editora character varying(50),
+    autor character varying(50),
+    edicao integer,
+    anopublicacao integer,
+    ativo boolean,
+    status character varying(20),
+    categoria character varying(20),
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.livro
+    OWNER to postgres;
+
+CREATE TABLE public.emprestimo
+(
+    id bigserial NOT NULL,
+    dataemprestimo date,
+    datadevolucao date,
+    renovado boolean,
+    ativo boolean,
+    usuario_id integer,
+    livro_id integer,
+    PRIMARY KEY (id),
+    CONSTRAINT usuario_id FOREIGN KEY (usuario_id)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT livro_id FOREIGN KEY (livro_id)
+        REFERENCES public.livro (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.emprestimo
+    OWNER to postgres;
+
+CREATE TABLE public.reserva
+(
+    id bigserial NOT NULL,
+    datareserva timestamp with time zone,
+    prazoretirada integer,
+    ativo boolean,
+    statusreserva character varying(20),
+    usuario_id integer,
+    livro_id integer,
+    PRIMARY KEY (id),
+    CONSTRAINT usuario_id FOREIGN KEY (usuario_id)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT livro_id FOREIGN KEY (livro_id)
+        REFERENCES public.livro (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.reserva
+    OWNER to postgres;

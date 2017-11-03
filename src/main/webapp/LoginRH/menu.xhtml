@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"
+		type="text/css" />
+	<h:outputStylesheet library="css" name="custom.css" type="text/css" />
+</h:head>
+<h:body>
+	<div class="navbar fixed-top navbar-custom bg-dark">
+		<div class="container">
+			<h:link outcome="telaInicialRH">
+				<h:graphicImage class="nav-logo-custom" library="imagens"
+					name="LogoBiblioteca.png" />
+			</h:link>
+			<h:link class="nav-item-custom" value="Inicio"
+				outcome="telaInicialRH" />
+			<h:link class="nav-item-custom" value="Gerenciar" outcome="acervo" />
+			<h:link class="nav-item-custom" value="Empréstimos"
+				outcome="emprestimos" />
+			<h:link class="nav-item-custom" value="Reservas" outcome="reservas" />
+			<h:form>
+				<h:commandLink class="btn btn-danger"
+					action="#{usuarioBean.logout}">
+					<h:graphicImage library="imagens" name="logout.png" /> Sair
+				</h:commandLink>
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>

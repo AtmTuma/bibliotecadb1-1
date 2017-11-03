@@ -1,0 +1,143 @@
+.titulo-pagina {
+	font-size:35px;
+}
+
+.div-login {
+	width: 400px;
+	height: 100vh;
+	padding-top: 100px;
+	margin: 0 auto;
+}
+
+.div-error-message {
+	width: 400px;
+	height: 50px;
+	padding: 10px 10px;
+	margin: 0 auto;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	color: #FFF;
+	border-radius: 0.3rem;
+}
+
+.form-holder {
+	width: 100%;
+	padding: 15px;
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;
+}
+
+.form-margem {
+	margin-top: 8px;
+}
+
+.login-background {
+	background-image: url("../resources/imagens/db1Background2.png");
+}
+
+.form-img-db1 {
+	background: rgba(255, 255, 255, 0.71);	
+}
+
+.nav-logo-custom {
+	height: 70px;
+}
+.nav-item-custom {
+	color:grey;
+	text-decoration: none !important;
+	padding: 10px;
+	width: 120px;
+	height: 100%;
+	text-align: center;
+	line-height: 50px;
+}
+
+.nav-item-custom:hover {
+	color: #fff;
+	background-color: #FF3030;
+	line-height: 50px;
+}
+
+.navbar-custom {
+	background-color: #fff;
+	box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+	padding: 0;
+}
+
+.container-conteudo {
+	margin-top: 100px;
+}
+
+.card-custom {
+	padding: 10px;
+}
+
+.card-img-custom {
+	width: 150px;
+	margin: auto;
+}
+
+.campo-pesquisa {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	margin-bottom: 10px;
+}
+
+.col-cod-livro {
+	font-weight: 300;
+	background: #bd2130;
+	width: 5%;
+}
+
+.col-titulo-livro {
+	font-weight: 300;
+	background: #bd2130;
+	width: 40%;
+}
+
+.col-autor-livro {
+	font-weight: 300;
+	background: #bd2130;
+	width: 25%;
+}
+
+.col-status-livro {
+	font-weight: 300;
+	background: #bd2130;
+	width: 15%;
+}
+
+.col-gerenciar-livro {
+	font-weight: 300;
+	background: #bd2130;
+	width: 15%;
+}
+
+.col-id {
+	font-weight: 300;
+	background: #bd2130;
+	width: 5%;
+}
+
+.col-data {
+	font-weight: 300;
+	background: #bd2130;
+	width: 20%;
+}
+
+.col-colaborador {
+	font-weight: 300;
+	background: #bd2130;
+	width: 25%;
+}
+
+.col-gerenciar {
+	font-weight: 300;
+	background: #bd2130;
+	width: 15%;
+}
+
+.tabela-margem-botao {
+	margin-bottom: 1px;
+}

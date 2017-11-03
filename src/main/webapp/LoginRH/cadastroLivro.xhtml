@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<p class="lead titulo-pagina">Gerenciar Livros - Novo Livro</p>
+				</div>
+			</div>
+			<hr />
+			<h:form>
+				<div class="container">
+					<div align="center" class="text-left">
+						<div class="form-group">
+							<h:outputLabel value="Titulo:" for="campo-titulo" />
+							<h:inputText value="#{livroBean.entidade.titulo}"
+								id="campo-titulo" required="true" label="Titulo">
+							</h:inputText>
+							<h:message for="campo-titulo" style="color:red" />
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Autor:" for="campo-autor" />
+							<h:inputText value="#{livroBean.entidade.autor}" id="campo-autor"
+								required="true" label="Autor">
+							</h:inputText>
+							<h:message for="campo-autor" style="color:red" />
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Editora:" for="campo-editora" />
+							<h:inputText value="#{livroBean.entidade.editora}"
+								id="campo-editora" required="true" label="Editora">
+							</h:inputText>
+							<h:message for="campo-editora" style="color:red" />
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Descricao:" for="campo-descricao" />
+							<h:inputText value="#{livroBean.entidade.descricao}"
+								id="campo-descricao" required="true" label="Descricao">
+							</h:inputText>
+							<h:message for="campo-descricao" style="color:red" />
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Edicao:" for="campo-edicao" />
+							<h:inputText value="#{livroBean.entidade.edicao}"
+								id="campo-edicao"></h:inputText>
+							<h:message for="campo-edicao" style="color:red" />
+						</div>
+
+						<div class="form-group">
+							<h:outputLabel value="Ano de Publicação:"
+								for="campo-anopublicacao" />
+							<h:inputText value="#{livroBean.entidade.anoPublicacao}"
+								id="campo-anopublicacao"></h:inputText>
+							<h:message for="campo-anopublicacao" style="color:red" />
+						</div>
+						<h:commandButton value="Cadastrar"
+							class="btn btn-dark text-center px-5"
+							action="#{livroBean.salvar}" />
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

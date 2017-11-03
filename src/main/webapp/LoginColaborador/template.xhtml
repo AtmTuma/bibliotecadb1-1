@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"
+		type="text/css" />
+	<h:outputStylesheet library="font-awesome"
+		name="css/font-awesome.min.css" type="text/css" />
+	<h:outputStylesheet library="css" name="custom.css" type="text/css" />
+</h:head>
+
+<h:body>
+
+	<ui:include src="menu.xhtml" />
+
+	<ui:insert name="conteudo" />
+
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+</html>

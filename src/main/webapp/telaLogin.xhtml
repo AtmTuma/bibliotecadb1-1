@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Login</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="custom.css" />
+</h:head>
+
+<h:body>
+	<div class="container-fluid login-background">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
+				<div class="div-login">
+					<h:graphicImage class="card-img-top form-img-db1" library="imagens"
+						name="LogoBiblioteca.png" />
+					<div class="bg-dark form-holder">
+						<h:form>
+							<h:panelGroup layout="block" class="div-error-message"
+								rendered="#{usuarioBean.erroValidacao}">
+								<h:messages />
+							</h:panelGroup>
+							<h:inputText id="campo-email" value="#{usuarioBean.emailLogin}"
+								class="form-control form-margem" size="20" required="true"
+								pt:placeholder="Seu Email" label="Email" />
+							<h:message for="campo-email" style="color:red" />
+							<h:inputSecret id="campo-senha" value="#{usuarioBean.senhaLogin}"
+								class="form-control form-margem" size="20" required="true"
+								pt:placeholder="Senha" label="Senha" />
+							<h:message for="campo-senha" style="color:red" />
+							<h:commandButton class="btn btn-block btn-danger form-margem"
+								value="Entrar" action="#{usuarioBean.login}" />
+
+						</h:form>
+						<hr />
+						<h:form>
+							<h:commandLink class="text-white form-btn"
+								value="Não está registrado? Crie uma Conta!"
+								action="#{usuarioBean.novo}" />
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</html>

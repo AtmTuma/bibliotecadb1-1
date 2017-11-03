@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<div class="container container-conteudo">
+			<div class="row">
+				<div class="col-xs-12 col-md-8">
+					<p class="lead titulo-pagina">Reservas Ativas</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<p class="lead"><h:messages class="bg-success"/></p>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h:outputLabel rendered="#{empty reservaBean.minhasReservas}">
+						<p class="lead">Não há reservas ativas!</p>
+					</h:outputLabel>
+					<h:form>
+						<h:dataTable class="table table-sm table-hover"
+							value="#{reservaBean.minhasReservas}" var="reserva"
+							rendered="#{not empty reservaBean.minhasReservas}">
+							<h:column headerClass="col-cod-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Id</f:facet>
+								<!-- row record -->
+    						#{reserva.id}
+    						</h:column>
+							<h:column headerClass="col-titulo-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Título</f:facet>
+								<!-- row record -->
+    						#{reserva.livro.titulo}
+    						</h:column>
+							<h:column headerClass="col-autor-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Autor</f:facet>
+								<!-- row record -->
+    						#{reserva.livro.autor}
+    						</h:column>
+							<h:column headerClass="col-status-livro text-white">
+								<!-- column header -->
+								<f:facet name="header">Status</f:facet>
+								<!-- row record -->
+    						#{reserva.livro.status}
+    						</h:column>
+							<h:column headerClass="col-gerenciar text-white">
+								<f:facet name="header">Ações</f:facet>
+								<h:commandButton value="Cancelar Reserva"
+									class="btn btn-block text-white btn-danger"
+									action="#{reservaBean.cancelarReserva(reserva)}" />
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
