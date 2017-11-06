@@ -15,7 +15,7 @@ O projeto foi concluído em 20 dias úteis pela equipe formada durante o curso. 
 
 **Mayza(eu)** https://github.com/MayzaHirose
 
-A primeira versão está disponível no link <a href="bibliotecadb1.herokuapp.com">bibliotecadb1.herokuapp.com</a> e não está totalmente finalizado. Alguns bugs ou outros detalhes podem estar faltando. Nos oferecemos para sanar quaisquer dúvidas referentes ao sistema ou a equipe. 
+A primeira versão está disponível no link bibliotecadb1.herokuapp.com e não está totalmente finalizado. Alguns bugs ou outros detalhes podem estar faltando. Nos oferecemos para sanar quaisquer dúvidas referentes ao sistema ou a equipe. 
 
 Algumas tecnologias utilizadas:
 
